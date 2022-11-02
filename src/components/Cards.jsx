@@ -4,12 +4,10 @@ import './main.css'
 
 
 function Cards(props){
-    const characters = props.characters;
-
-
-    const cards = characters.map(card=>
+    
+    const cards = props.characters.map(card=>
         <div title={card.alt} 
-            onClick={props.onClick} 
+            onClick={()=>props.onClick(card.id)} 
             className='card' 
             key={card.id} 
             style={{backgroundImage : `url(${card.url})`}}

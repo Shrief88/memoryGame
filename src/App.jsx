@@ -55,9 +55,23 @@ function App() {
   }
 
 
-  const handleClick = () =>{
-    setCurrentScore(prev => prev+1);
-    setCharacters(shuffle(characters));
+
+
+  const handleClick = (id) =>{
+    const clickedCard = characters.filter(character=>character.id === id);
+   
+    if(!clickedCard[0].hasBeenHit){
+      setCurrentScore(prev => prev+1); 
+      setCharacters(prevArray=>prevArray.map(item=>item.id === id ? {...item,hasBeenHit:true}:item));
+    }else{
+      setBestScore(prev=> prev<currentScore ? currentScore:prev);
+      setCurrentScore(0);
+      setCharacters(prevArray=>prevArray.map(item=>{
+        return {...item,hasBeenHit:false}
+      }));
+    }
+    
+    setCharacters(prevArray=>shuffle(prevArray))
   }
 
   
