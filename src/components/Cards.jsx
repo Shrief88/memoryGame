@@ -9,12 +9,12 @@ function Cards(props){
         <div key={card.id} >
             <div title={card.alt} 
             onClick={()=>props.onClick(card.id)} 
-            className='card' 
+            className="bg-cover w-48 h-48"
             style={{backgroundImage : `url(${card.url})`}}
             >    
             </div>
             <div>
-                <p className='name'>{card.alt}</p>
+                <p className="mt-2 font-semibold">{card.alt}</p>
             </div>
 
         </div>
@@ -22,7 +22,7 @@ function Cards(props){
     )
 
     return(
-        <div className='cards'>
+        <div className="flex flex-wrap gap-5 justify-center mt-5">
             {cards}
         </div>
     )
@@ -30,3 +30,12 @@ function Cards(props){
 }
 
 export default Cards;
+
+
+
+
+
+// .name{
+//     margin-top: 10px;
+//     font-weight: 600;
+// }
