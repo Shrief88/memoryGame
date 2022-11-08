@@ -1,5 +1,3 @@
-import './main.css'
-
 function Header(props){
     return(
         <div className="tex">

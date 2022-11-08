@@ -1,8 +1,3 @@
-import './main.css'
-
-
-
-
 function Cards(props){
     
     const cards = props.characters.map(card=>
