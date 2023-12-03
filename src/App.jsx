@@ -18,6 +18,10 @@ import pain from './images/pain.jpg'
 import sakura from './images/sakura.jpg'
 import sasuke from './images/sasuke.jpg'
 import tobirama from './images/tobirama.jpg'
+import tsunade from './images/Tsunade.jpg'
+import temari from "./images/Temari.jpeg"
+import shikamaru from "./images/Shikamaru.jpg"
+import kurenai from "./images/Kurenai.webp"
 
 
 function App() {
@@ -39,12 +43,16 @@ function App() {
     {url:obito,alt: "Obito",id:13,hasBeenHit:false},
     {url:sakura,alt: "Sakura",id:14,hasBeenHit:false},
     {url:sasuke,alt: "Sasuke",id:15,hasBeenHit:false},
-    {url:tobirama,alt: "Tobirama",id:16,hasBeenHit:false},   
+    {url:tobirama,alt: "Tobirama",id:16,hasBeenHit:false},
+    {url:tsunade,alt: "tsunade",id:17,hasBeenHit:false},   
+    {url:temari,alt: "temari",id:18,hasBeenHit:false},
+    {url:shikamaru,alt: "shikamaru",id:19,hasBeenHit:false},
+    {url:kurenai,alt: "kurenai",id:20,hasBeenHit:false},
   ])
 
   
   const shuffle = (array) =>{
-    let m =16,i,t;
+    let m =array.length,i,t;
     while(m){
       i = Math.floor(Math.random() * m--);
       t = array[m];
@@ -59,7 +67,7 @@ function App() {
 
   const handleClick = (id) =>{
     const clickedCard = characters.filter(character=>character.id === id);
-   
+
     if(!clickedCard[0].hasBeenHit){
       setCurrentScore(prev => prev+1); 
       setCharacters(prevArray=>prevArray.map(item=>item.id === id ? {...item,hasBeenHit:true}:item));
@@ -79,6 +87,7 @@ function App() {
   return (
     <div className="App">
       <Header currentScore={currentScore} bestScore={bestScore}/>
+      {currentScore === characters.length && <h3 className='pt-3'>conguratulations! You Win</h3>}
       <Cards onClick={handleClick} characters={characters}/>
     </div>
   )

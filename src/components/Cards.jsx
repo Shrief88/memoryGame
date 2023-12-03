@@ -25,12 +25,3 @@ function Cards(props){
 }
 
 export default Cards;
-
-
-
-
-
-// .name{
-//     margin-top: 10px;
-//     font-weight: 600;
-// }
